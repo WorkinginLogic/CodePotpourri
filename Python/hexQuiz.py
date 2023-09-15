@@ -5,14 +5,14 @@ def random_nibble():
 
 def binary_to_hex(b):
     integer = int(b, 2)
-    return hex(integer).strip('0x')
+    return hex(integer)[2:]
 
 if __name__ == "__main__":
     for i in range(10):
         random_binary = random_nibble()
         correct_hex= binary_to_hex(random_binary)
         
-        print(f"Binary: {random_binary.lstrip('0b')}")
+        print(f"Binary: {random_binary[2:]}")
         hex_input = input("Enter the Hexadecimal equivalent: ")
 
         if hex_input == correct_hex:
