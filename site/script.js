@@ -9,7 +9,7 @@ function binaryToHex(b) {
     return integer.toString(16);
 }
 
-function generateNewb2hQuestion() {
+function generateNewQuestion() {
     const randomBinaryElement = document.getElementById("randomBinary");
     const outputElement = document.getElementById("output");
     const hexInput = document.getElementById("hexInput");
@@ -33,19 +33,19 @@ function updateOutput(randomBinary) {
     }
 }
 
-const b2hButton = document.getElementById("b2hButton");
-let currentRandomBinary = generateNewb2hQuestion(); // Initial question
+const binaryButton = document.getElementById("binaryButton");
+let currentRandomBinary = generateNewQuestion(); // Initial question
 
-b2hButton.addEventListener("click", function() {
+binaryButton.addEventListener("click", function() {
     updateOutput(currentRandomBinary);
-    currentRandomBinary = generateNewb2hQuestion(); // Generate a new question
+    currentRandomBinary = generateNewQuestion(); // Generate a new question
 });
 
 hexInput.addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
         event.preventDefault(); // Prevent form submission
         updateOutput(currentRandomBinary); // Check the current question
-        currentRandomBinary = generateNewb2hQuestion(); // Generate a new question
+        currentRandomBinary = generateNewQuestion(); // Generate a new question
     }
 });
 
@@ -67,7 +67,7 @@ function hexToBinary(hex) {
     return binary.padStart(4, '0'); 
 }
 
-function generateNewQuestion() {
+function generateNewQuestion1() {
     const randomHexElement = document.getElementById("randomHex");
     const outputElement = document.getElementById("output");
     const binaryInput = document.getElementById("binaryInput");
@@ -79,7 +79,7 @@ function generateNewQuestion() {
     return randomHex; 
 }
 
-function updateh2bOutput(randomHex) {
+function updateOutput1(randomHex) {
     const binaryInput = document.getElementById("binaryInput").value;
     const outputElement = document.getElementById("output");
     const correctBinary = hexToBinary(randomHex);
@@ -93,18 +93,18 @@ function updateh2bOutput(randomHex) {
 
 const hexButton = document.getElementById("hexButton");
 const binaryInput = document.getElementById("binaryInput");
-let currentRandomHex = generateNewQuestion();
+let currentRandomHex = generateNewQuestion1();
 
 hexButton.addEventListener("click", function() {
-    updateh2bOutput(currentRandomHex); 
-    currentRandomHex = generateNewQuestion();
+    updateOutput1(currentRandomHex); 
+    currentRandomHex = generateNewQuestion1();
 });
 
 binaryInput.addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
         event.preventDefault(); 
-        updateh2bOutput(currentRandomHex); 
-        currentRandomHex = generateNewQuestion();
+        updateOutput1(currentRandomHex); 
+        currentRandomHex = generateNewQuestion1();
     }
 });
 
