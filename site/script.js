@@ -21,7 +21,7 @@ function generateNewb2hQuestion() {
     return randomBinary; 
 }
 
-function updateb2hOutput(randomBinary) {
+function updateOutput(randomBinary) {
     const hexInput = document.getElementById("hexInput").value;
     const outputElement = document.getElementById("output");
     const correctHex = binaryToHex(randomBinary);
@@ -37,14 +37,14 @@ const b2hButton = document.getElementById("b2hButton");
 let currentRandomBinary = generateNewb2hQuestion(); // Initial question
 
 b2hButton.addEventListener("click", function() {
-    updateb2hOutput(currentRandomBinary);
+    updateOutput(currentRandomBinary);
     currentRandomBinary = generateNewb2hQuestion(); // Generate a new question
 });
 
 hexInput.addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
         event.preventDefault(); // Prevent form submission
-        updateb2hOutput(currentRandomBinary); // Check the current question
+        updateOutput(currentRandomBinary); // Check the current question
         currentRandomBinary = generateNewb2hQuestion(); // Generate a new question
     }
 });
@@ -138,7 +138,7 @@ function generateNewQuestion2() {
     return randomHex; 
 }
 
-function updateh2bOutput2(randomHex) {
+function updateOutput2(randomHex) {
     const binaryInput = document.getElementById("binaryInput2").value;
     const outputElement = document.getElementById("output");
     const correctBinary = hexToBinary2(randomHex);
@@ -155,14 +155,14 @@ const binaryInput2 = document.getElementById("binaryInput2");
 let currentRandomHex2 = generateNewQuestion2();
 
 hexButton2.addEventListener("click", function() {
-    updateh2bOutput2(currentRandomHex2); 
+    updateOutput2(currentRandomHex2); 
     currentRandomHex2 = generateNewQuestion2();
 });
 
 binaryInput2.addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
         event.preventDefault(); 
-        updateh2bOutput2(currentRandomHex2); 
+        updateOutput2(currentRandomHex2); 
         currentRandomHex2 = generateNewQuestion2();
     }
 });
