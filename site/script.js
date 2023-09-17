@@ -16,7 +16,7 @@ function generateNewQuestion() {
     
     const randomBinary = randomNibble();
     randomBinaryElement.textContent = `${randomBinary}`;
-    hexInput.value = ''; // Clear input
+    hexInput.value = '';
 
     return randomBinary; 
 }
@@ -34,18 +34,18 @@ function updateOutput(randomBinary) {
 }
 
 const binaryButton = document.getElementById("binaryButton");
-let currentRandomBinary = generateNewQuestion(); // Initial question
+let currentRandomBinary = generateNewQuestion();
 
 binaryButton.addEventListener("click", function() {
     updateOutput(currentRandomBinary);
-    currentRandomBinary = generateNewQuestion(); // Generate a new question
+    currentRandomBinary = generateNewQuestion();
 });
 
 hexInput.addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
-        event.preventDefault(); // Prevent form submission
-        updateOutput(currentRandomBinary); // Check the current question
-        currentRandomBinary = generateNewQuestion(); // Generate a new question
+        event.preventDefault(); 
+        updateOutput(currentRandomBinary);
+        currentRandomBinary = generateNewQuestion();
     }
 });
 
@@ -177,32 +177,32 @@ function randomHexadecimal3() {
     for (let i = 0; i < 2; i++) {
         result += characters.charAt(Math.floor(Math.random() * characters.length));
     }
-    return result; // Returns a string with two concatenated hexadecimal digits.
+    return result; 
 }
 
-function hexToDecimal(hex) { // Modified function name
-    const decimal = parseInt(hex, 16); // Directly convert to decimal
-    return decimal; // Return the decimal value
+function hexToDecimal(hex) {
+    const decimal = parseInt(hex, 16);
+    return decimal;
 }
 
 function generateNewQuestion3() {
     const randomHexElement = document.getElementById("randomHex3");
     const outputElement = document.getElementById("output");
-    const decimalInput = document.getElementById("decimalInput"); // Modify input ID
+    const decimalInput = document.getElementById("decimalInput");
     
     const randomHex = randomHexadecimal3();
     randomHexElement.textContent = `${randomHex}`;
-    decimalInput.value = ''; // Clear the input field
+    decimalInput.value = ''; 
 
-    return randomHex; // Return the new random hexadecimal for checking later
+    return randomHex;
 }
 
 function updateOutput3(randomHex) {
-    const decimalInput = document.getElementById("decimalInput").value; // Modify input ID
+    const decimalInput = document.getElementById("decimalInput").value;
     const outputElement = document.getElementById("output");
-    const correctDecimal = hexToDecimal(randomHex); // Use the modified function
+    const correctDecimal = hexToDecimal(randomHex); 
 
-    if (decimalInput === correctDecimal.toString()) { // Convert decimal to string for comparison
+    if (decimalInput === correctDecimal.toString()) {
         outputElement.textContent = "Correct!";
     } else {
         outputElement.textContent = `Wrong. The correct answer is ${correctDecimal}.`;
@@ -211,18 +211,17 @@ function updateOutput3(randomHex) {
 
 const decimalButton = document.getElementById("decimalButton");
 const decimalInput = document.getElementById("decimalInput");
-let currentRandomHex3 = generateNewQuestion3(); // Generate the initial question
+let currentRandomHex3 = generateNewQuestion3(); 
 
 decimalButton.addEventListener("click", function() {
-    updateOutput3(currentRandomHex3); // Check the current question
-    currentRandomHex3 = generateNewQuestion3(); // Generate a new question
+    updateOutput3(currentRandomHex3);
+    currentRandomHex3 = generateNewQuestion3();
 });
 
-// Add an event listener to the text field for the Enter key press event
 decimalInput.addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
-        event.preventDefault(); // Prevent form submission
-        updateOutput3(currentRandomHex3); // Check the current question
-        currentRandomHex3 = generateNewQuestion3(); // Generate a new question
+        event.preventDefault();
+        updateOutput3(currentRandomHex3);
+        currentRandomHex3 = generateNewQuestion3(); 
     }
 });
