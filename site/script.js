@@ -67,7 +67,7 @@ function hexToBinary(hex) {
     return binary.padStart(4, '0'); 
 }
 
-function generateNewh2bQuestion() {
+function generateNewQuestion() {
     const randomHexElement = document.getElementById("randomHex");
     const outputElement = document.getElementById("output");
     const binaryInput = document.getElementById("binaryInput");
@@ -91,20 +91,20 @@ function updateh2bOutput(randomHex) {
     }
 }
 
-const h2bButton = document.getElementById("h2bButton");
+const hexButton = document.getElementById("hexButton");
 const binaryInput = document.getElementById("binaryInput");
-let currentRandomHex = generateNewh2bQuestion();
+let currentRandomHex = generateNewQuestion();
 
-h2bButton.addEventListener("click", function() {
+hexButton.addEventListener("click", function() {
     updateh2bOutput(currentRandomHex); 
-    currentRandomHex = generateNewh2bQuestion();
+    currentRandomHex = generateNewQuestion();
 });
 
 binaryInput.addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
         event.preventDefault(); 
         updateh2bOutput(currentRandomHex); 
-        currentRandomHex = generateNewh2bQuestion();
+        currentRandomHex = generateNewQuestion();
     }
 });
 
@@ -126,7 +126,7 @@ function hexToBinary2(hex) {
     return binary.padStart(8, '0'); 
 }
 
-function generateNewh2bQuestion2() {
+function generateNewQuestion2() {
     const randomHexElement = document.getElementById("randomHex2");
     const outputElement = document.getElementById("output");
     const binaryInput = document.getElementById("binaryInput2");
@@ -150,20 +150,20 @@ function updateh2bOutput2(randomHex) {
     }
 }
 
-const h2bButton2 = document.getElementById("h2bButton2");
+const hexButton2 = document.getElementById("hexButton2");
 const binaryInput2 = document.getElementById("binaryInput2");
-let currentRandomHex2 = generateNewh2bQuestion2();
+let currentRandomHex2 = generateNewQuestion2();
 
-h2bButton2.addEventListener("click", function() {
+hexButton2.addEventListener("click", function() {
     updateh2bOutput2(currentRandomHex2); 
-    currentRandomHex2 = generateNewh2bQuestion2();
+    currentRandomHex2 = generateNewQuestion2();
 });
 
 binaryInput2.addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
         event.preventDefault(); 
         updateh2bOutput2(currentRandomHex2); 
-        currentRandomHex2 = generateNewh2bQuestion2();
+        currentRandomHex2 = generateNewQuestion2();
     }
 });
 
@@ -209,11 +209,11 @@ function updateOutput3(randomHex) {
     }
 }
 
-const h2dButton = document.getElementById("h2dButton");
+const decimalButton = document.getElementById("decimalButton");
 const decimalInput = document.getElementById("decimalInput");
 let currentRandomHex3 = generateNewQuestion3(); // Generate the initial question
 
-h2dButton.addEventListener("click", function() {
+decimalButton.addEventListener("click", function() {
     updateOutput3(currentRandomHex3); // Check the current question
     currentRandomHex3 = generateNewQuestion3(); // Generate a new question
 });
