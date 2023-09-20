@@ -2,11 +2,16 @@
 
 const maskOctets = ["10000000","11000000","11100000","11110000","11111000","11111100","11111110","11111111"]
 
+let previousOctet = '';
 function pickOctet(){
-	const randomIndex = Math.floor(Math.random() * maskOctets.length);
-	return maskOctets[randomIndex];
-}
-
+    var randomOctet;
+    do {
+      randomOctet = maskOctets[Math.floor(Math.random() * maskOctets.length)];
+    } while (randomOctet === previousOctet);
+  
+    previousOctet = randomOctet;
+    return randomOctet;
+  }
 function binaryToDecimal(binary){
 	return parseInt(binary, 2);
 }
@@ -17,31 +22,39 @@ function generateNewQuestion4(){
 	const decimalInput1 = document.getElementById("decimalInput1");
 
 	const randomOctet = pickOctet();
-	octetElement.txtContent = '${randomOctet}';
+	octetElement.textContent = `${randomOctet}`;
 	decimalInput1.value = '';
 
 	return randomOctet;
 }
 
-function updateOutput4(){
+function updateOutput4(randomOctet){
 	const decInput = document.getElementById("decimalInput1").value;
 	const outputElement = document.getElementById("output");
 	const correctDec = binaryToDecimal(randomOctet);
 
-	if (decInput === correctDec){
+	if (decInput === correctDec.toString()){
 		outputElement.textContent = "Correct!";
 	} else {
-	outputElement.textContent = 'Wrong. The correct answer is ${correctDec}.';	
+	    outputElement.textContent = `Wrong. The correct answer is ${correctDec}.${decInput}`;	
 	}
 }
 
-const decimalButton1 = document.getElementById("decimalInput1");
+const decimalButton1 = document.getElementById("decimalButton1");
 let currentRandomOctet = generateNewQuestion4();
 
 decimalButton1.addEventListener("click", function() {
 	updateOutput4(currentRandomOctet);
 	currentRandomOctet = generateNewQuestion4();
-}
+});
+
+decimalInput1.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault(); 
+        updateOutput(currentRandomOctet);
+        currentRandomOctet = generateNewQuestion4();
+    }
+});
 
 
 /* --- Binary to Hex ---  */
