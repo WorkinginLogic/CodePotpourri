@@ -35,6 +35,15 @@ function updateOutput4(){
 	}
 }
 
+const decimalButton1 = document.getElementById("decimalInput1");
+let currentRandomOctet = generateNewQuestion4();
+
+decimalButton1.addEventListener("click", function() {
+	updateOutput4(currentRandomOctet);
+	currentRandomOctet = generateNewQuestion4();
+}
+
+
 /* --- Binary to Hex ---  */
 
 function randomNibble() {
