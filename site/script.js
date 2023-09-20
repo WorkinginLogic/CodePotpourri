@@ -1,7 +1,7 @@
 /* --- Masking Octet --- */
 
 const maskOctets = ["10000000","11000000","11100000","11110000","11111000","11111100","11111110","11111111"]
-/*
+
 function pickOctet(){
 	const randomIndex = Math.floor(Math.random() * maskOctets.length);
 	return maskOctets[randomIndex];
@@ -11,14 +11,14 @@ function binaryToDecimal(binary){
 	return parseInt(binary, 2);
 }
 
-function generateNewQuestion0(){
+function generateNewQuestion4(){
 	const octetElement = document.getElementById("octet");
 	const outputElement = document.getElementById("output");
 	const decimalInput1 = document.getElementById("decimalInput1");
 
 	const randomOctet = pickOctet();
-	OctetElement.txtContent = '${randomOctet}';
-	hexInput.value '';
+	octetElement.txtContent = '${randomOctet}';
+	decimalInput1.value = '';
 
 	return randomOctet;
 }
@@ -34,7 +34,6 @@ function updateOutput4(){
 	outputElement.textContent = 'Wrong. The correct answer is ${correctDec}.';	
 	}
 }
-*/
 
 /* --- Binary to Hex ---  */
 
